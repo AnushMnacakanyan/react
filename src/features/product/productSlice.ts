@@ -6,30 +6,29 @@ import { getCategoriesAPI, getProductByIdAPI, getProductsAPI, getProductsByCateg
 const initialState: {
   products: Product[];
   product: Product;
-  category: string[];
+  categories: string[];
 } = {
   product: {} as Product,
   products: [],
-  category: [],
+  categories: [],
 };
 
 
 const productSlice= createSlice({
     name:"product",
     initialState,
-    reducers:{  
-    },
+    reducers:{},
     extraReducers:(build)=>{
         build.addCase(getProductsAPI.fulfilled,(state, action)=>{
             state.products=action.payload
         }).addCase(getProductByIdAPI.fulfilled,(state,action)=>{
-            state.products=action.payload
+            state.product=action.payload
         }).addCase(getProductsByLimitIdAPI.fulfilled,(state,actions)=>{
             state.products=actions.payload
         }).addCase(sortProductsAPI.fulfilled,(state,actions)=>{
             state.products=actions.payload
         }).addCase(getCategoriesAPI.fulfilled,(state,actions)=>{
-            state.category=actions.payload
+            state.categories=actions.payload
         }).addCase(getProductsByCategoryIdAPI.fulfilled,(state,actions)=>{
             state.products=actions.payload
         }).addCase(updateProductAPI.fulfilled,(state,actions)=>{

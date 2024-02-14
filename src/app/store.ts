@@ -4,7 +4,7 @@ import productReducer from '../features/product/productSlice';
 
 export const store = configureStore({
   reducer: {
-    main:productReducer
+    main:productReducer,
   },
 });
 
@@ -16,6 +16,6 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
-export const myAxtios =axios.create({
-baseURL:"'https://fakestoreapi.com"
+export const myAxios =axios.create({
+baseURL:"https://fakestoreapi.com"
 })
