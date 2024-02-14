@@ -5,8 +5,8 @@ export const Menu=React.memo(()=>{
     return(<div>
         <nav>
             <ul>
-                <li><NavLink to={"/"}>home</NavLink></li>
-                <li><NavLink to={"/add"}>addProduct</NavLink></li>
+                <li><NavLink to={"/"}>Home</NavLink></li>
+                <li><NavLink to={"/add"}>AddProduct</NavLink></li>
             </ul>
         </nav>
     </div>)
