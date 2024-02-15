@@ -17,8 +17,8 @@ export const AddProduct=React.memo(()=>{
         dispatch(addProductAPI(data)).unwrap().then(console.log)
         reset()
     }
-    return(<div>
-        <h3>AddProduct</h3>
+    return(<div className="div2">
+        <h3 className="h3" >AddProduct</h3>
         <form onSubmit={handleSubmit(save)}>
             <input type="text" placeholder="title"{
                 ...register("title",{

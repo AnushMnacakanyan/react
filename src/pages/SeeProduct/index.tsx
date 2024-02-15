@@ -23,21 +23,25 @@ export const SeeProduct = React.memo(() => {
             dispatch(updateProductAPI({ id: +id, obj: data }))
         }
     }
-    return (<div>
-        <h3>SeeProduct</h3>
-        <div>
-            <div>
+    return (<div className="div3">
+        <h3 className="h3">SeeProduct</h3>
+        <div className="div3-0">
+            <span className="sp1"></span>
+            <div  className="div3-1">
                 <h4>{product.title}</h4>
                 <p>{product.price}</p>
                 <h4>{product.category}</h4>
                 <p>{product.description}</p>
                 <p>{product.rating.count}</p>
                 <p>{product.rating.rate}</p>
-                <button onClick={() => dispatch(deleteProductAPI(product.id)).unwrap().then( ()=> dispatch(getProductsAPI()))} >delete</button>
+                <button className="btn1" onClick={() => dispatch(deleteProductAPI(product.id)).unwrap().then( ()=> dispatch(getProductsAPI()))} >delete</button>
             </div>
+            <div >
             <img src={product.image} alt="" />
+            </div>
+            <span className="sp1"></span>
         </div>
-        <div>
+        <div className="div3-3"> 
             <form onSubmit={handleSubmit(save)}>
                 <input type="text" {...register("title")} placeholder="title" />
                 <input type="number" {...register("price")} placeholder="price" />

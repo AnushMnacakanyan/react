@@ -23,16 +23,18 @@ const productSlice= createSlice({
             state.products=action.payload
         }).addCase(getProductByIdAPI.fulfilled,(state,action)=>{
             state.product=action.payload
-        }).addCase(getProductsByLimitIdAPI.fulfilled,(state,actions)=>{
-            state.products=actions.payload
-        }).addCase(sortProductsAPI.fulfilled,(state,actions)=>{
-            state.products=actions.payload
-        }).addCase(getCategoriesAPI.fulfilled,(state,actions)=>{
-            state.categories=actions.payload
-        }).addCase(getProductsByCategoryIdAPI.fulfilled,(state,actions)=>{
-            state.products=actions.payload
-        }).addCase(updateProductAPI.fulfilled,(state,actions)=>{
-            state.product=actions.payload
+        }).addCase(getProductsByLimitIdAPI.fulfilled,(state,action)=>{
+            state.products=action.payload
+        }).addCase(sortProductsAPI.fulfilled,(state,action)=>{
+            console.log(action.payload);
+            
+            state.products=action.payload
+        }).addCase(getCategoriesAPI.fulfilled,(state,action)=>{
+            state.categories=action.payload
+        }).addCase(getProductsByCategoryIdAPI.fulfilled,(state,action)=>{
+            state.products=action.payload
+        }).addCase(updateProductAPI.fulfilled,(state,action)=>{
+            state.product=action.payload
         })
     }
 })

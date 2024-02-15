@@ -34,8 +34,8 @@ export const getProductsByLimitIdAPI=createAsyncThunk(
 //   );
 
 export enum SortPrice{
-    DESC="DESC",
-    ASC="ASC"
+    DESC="desc",
+    ASC="asc"
 }
 
 export const sortProductsAPI=createAsyncThunk(
