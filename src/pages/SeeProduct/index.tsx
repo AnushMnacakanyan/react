@@ -32,8 +32,8 @@ export const SeeProduct = React.memo(() => {
                 <p>{product.price}</p>
                 <h4>{product.category}</h4>
                 <p>{product.description}</p>
-                <p>{product.rating.count}</p>
-                <p>{product.rating.rate}</p>
+                <p>{product.rating?.count}</p>
+                <p>{product.rating?.rate}</p>
                 <button className="btn1" onClick={() => dispatch(deleteProductAPI(product.id)).unwrap().then( ()=> dispatch(getProductsAPI()))} >delete</button>
             </div>
             <div >

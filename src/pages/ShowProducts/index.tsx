@@ -6,7 +6,7 @@ import { SortPrice, getProductsAPI, getProductsByCategoryIdAPI, getProductsByLim
 
 export const ShowProduct=React.memo(()=>{
     const dispatch=useAppDispatch()
-    const {products}=useAppSelector(selectProduct)
+    const {products,categories}=useAppSelector(selectProduct)
     useEffect(()=>{
         dispatch(getProductsAPI())
     },[])
@@ -19,7 +19,11 @@ export const ShowProduct=React.memo(()=>{
             <option value={SortPrice.DESC}>nvazman kargov</option>
             <option value={SortPrice.ASC}>achman kargov</option>
         </select>
-        <input placeholder="search"  type="text" onChange={(e) => { dispatch(getProductsByCategoryIdAPI(e.target.value)).unwrap().then(console.log) }} />
+       <select onChange={(e) => { dispatch(getProductsByCategoryIdAPI(e.target.value)).unwrap().then(console.log)}} >
+        {categories?.map((elm,i)=>{
+            return(<option value={elm} key={i}>{elm}</option>)
+        })}
+       </select>
         {products?.map(elm=>{
             return(<div className="div2-0">
                 <span className="sp1"></span>
