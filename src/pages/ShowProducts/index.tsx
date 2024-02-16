@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectProduct } from "../../features/product/productSlice";
 import { Link } from "react-router-dom";
-import { SortPrice, getProductsAPI, getProductsByCategoryIdAPI, getProductsByLimitIdAPI, sortProductsAPI } from "../../features/product/productAPI";
+import { SortPrice, getCategoriesAPI, getProductsAPI, getProductsByCategoryIdAPI, getProductsByLimitIdAPI, sortProductsAPI } from "../../features/product/productAPI";
 
 export const ShowProduct=React.memo(()=>{
     const dispatch=useAppDispatch()
     const {products,categories}=useAppSelector(selectProduct)
     useEffect(()=>{
         dispatch(getProductsAPI())
+        dispatch(getCategoriesAPI())
     },[])
     
     return(<div className="div2">
@@ -20,6 +21,7 @@ export const ShowProduct=React.memo(()=>{
             <option value={SortPrice.ASC}>achman kargov</option>
         </select>
        <select onChange={(e) => { dispatch(getProductsByCategoryIdAPI(e.target.value)).unwrap().then(console.log)}} >
+       <option value="" hidden>category</option>
         {categories?.map((elm,i)=>{
             return(<option value={elm} key={i}>{elm}</option>)
         })}
