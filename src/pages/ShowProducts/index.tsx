@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectProduct } from "../../features/product/productSlice";
 import { Link } from "react-router-dom";
-import { SortPrice, getProductsAPI, getProductsByLimitIdAPI, sortProductsAPI } from "../../features/product/productAPI";
+import { SortPrice, getProductsAPI, getProductsByCategoryIdAPI, getProductsByLimitIdAPI, sortProductsAPI } from "../../features/product/productAPI";
 
 export const ShowProduct=React.memo(()=>{
     const dispatch=useAppDispatch()
@@ -19,10 +19,9 @@ export const ShowProduct=React.memo(()=>{
             <option value={SortPrice.DESC}>nvazman kargov</option>
             <option value={SortPrice.ASC}>achman kargov</option>
         </select>
-        {/* <input type="number" onChange={(e:any)=>dispatch(getProductsByLimitIdAPI(e.target.value))} /> */}
+        <input placeholder="search"  type="text" onChange={(e) => { dispatch(getProductsByCategoryIdAPI(e.target.value)).unwrap().then(console.log) }} />
         {products?.map(elm=>{
             return(<div className="div2-0">
-                {/* <input type="text" /> */}
                 <span className="sp1"></span>
                 <div className="div2-1">
                     <h3>{elm.title}</h3>
